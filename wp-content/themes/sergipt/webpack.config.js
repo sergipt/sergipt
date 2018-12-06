@@ -1,5 +1,6 @@
 const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const extractSass = new ExtractTextPlugin({
   filename: "../css/[name].min.css",
 });
@@ -33,7 +34,7 @@ module.exports = {
           }
         },
         {
-          test: /\.scss$/,
+          test: /\.(css|scss|sass)$/,
           use: extractSass.extract({
               use: [{
                   loader: "css-loader",
@@ -45,17 +46,6 @@ module.exports = {
               }],
               fallback: "style-loader"
           })
-        },
-        {
-          test: /\.css$/,
-          loader: 'style-loader',
-        },
-        {
-          test: /\.css$/,
-          loader: 'css-loader',
-          options: {
-            minimize: true
-          }
         }
       ]
     }
