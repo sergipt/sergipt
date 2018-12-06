@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'Inconsolata';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/Inconsolata.eot');
+  src: url('../fonts/Inconsolata.eot') format('embedded-opentype'),
+       url('../fonts/Inconsolata.woff2') format('woff2'),
+       url('../fonts/Inconsolata.woff') format('woff'),
+       url('../fonts/Inconsolata.ttf') format('truetype'),
+       url('../fonts/Inconsolata.svg#Inconsolata') format('svg');
+}
+
+
+$font-family1: 'Inconsolata', sans-serif;
+
+/*Colors*/
+$white: #FFF;
+$black: #000;
+$dark-grey: #282C34;
+$green: #83C374;
+$purple: #C678CD;
+$blue: #4EADC2;
+$dark-blue: #282C34;
+$red: #E05D4B;
+$yellow: #CEAF73;
+
+
+
+// http://stackoverflow.com/questions/17181849/placeholder-mixin-scss-css
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder2 {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}
