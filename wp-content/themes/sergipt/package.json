@@ -15,7 +15,8 @@
     "babel-loader": "^8.0.4",
     "babel-preset-env": "^1.7.0",
     "css-loader": "^1.0.1",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^2.0.0",
+    "mini-css-extract-plugin": "^0.4.5",
     "node-sass": "^4.10.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
@@ -23,5 +24,7 @@
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "optimize-css-assets-webpack-plugin": "^5.0.1"
+  }
 }

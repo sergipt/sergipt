@@ -1,52 +1,59 @@
 const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const extractSass = new ExtractTextPlugin({
-  filename: "../css/[name].min.css",
-});
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
-  entry: {
-     admin: './assets/js/admin.js',
-     public: './assets/js/public.js',
-  },
-  plugins: [
-    new UglifyJSPlugin(),
-    extractSass
-  ],
+  entry: ['./assets/js/general-scripts.js', './assets/scss/main.scss'],
   output: {
-    filename: '[name].min.js',
-    path: path.resolve(__dirname, 'assets/js')
-  },
-  externals: {
-    jquery: 'jQuery'
+    filename: './js/bundle.js',
+    path: path.resolve(__dirname)
   },
   module: {
-      rules: [
-        {
-          test: /\.js$/,
-          exclude: /(node_modules|bower_components)/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['babel-preset-env']
-            }
-          }
-        },
-        {
-          test: /\.(css|scss|sass)$/,
-          use: extractSass.extract({
-              use: [{
-                  loader: "css-loader",
-                  options: {
-                    minimize: true
-                  }
-              }, {
-                  loader: "sass-loader"
-              }],
-              fallback: "style-loader"
-          })
+    rules: [
+      // perform js babelization on all .js files
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['babel-preset-env']
+         }
         }
-      ]
-    }
+      },
+      // compile all .scss files to plain old css
+      {
+        test: /\.(sass|scss)$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [{
+            loader: 'file-loader',
+            options: {
+                name: '[name].[ext]',
+                outputPath: 'fonts/'
+            }
+        }]
+      }
+    ]
+  },
+  plugins: [
+    // extract css into dedicated file
+    new MiniCssExtractPlugin({
+      filename: './assets/css/styles.min.css'
+    })
+  ],
+  optimization: {
+    minimizer: [
+      // enable the js minification plugin
+      new UglifyJSPlugin({
+        cache: true,
+        parallel: true
+      }),
+      // enable the css minification plugin
+      new OptimizeCSSAssetsPlugin({})
+    ]
+  }
 };

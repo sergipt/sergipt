@@ -15,7 +15,7 @@
 }
 *:before,
 *:after {
-  @include box-sizing(border-box); 
+  @include box-sizing(border-box);
 }
 body,p,a,li{
   font-family: $font-family1;
@@ -26,26 +26,26 @@ h1,h2,h3,h4,h5,h6{
 p,
 li,
 body{
-  font-size: 18px; 
-  line-height: 30px;	
+  font-size: 18px;
+  line-height: 30px;
   font-weight: 100;
   margin: 0;
   padding: 0;
   color: $white;
-  -webkit-font-smoothing: antialiased; 
-  -moz-osx-font-smoothing: grayscale; 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 p{
   &.small{font-size: 12px}
   &.destacado{
     font-family: $font-family1;
-    font-size: 24px; 
+    font-size: 24px;
     line-height: 30px;
     margin-bottom: 10px;
   }
   &.destacado_final{
     font-family: $font-family1;
-    font-size: 20px; 
+    font-size: 20px;
     line-height: 30px;
     max-width: 650px;
     font-weight: bold;
@@ -57,19 +57,19 @@ p{
   }
   a{
     border-bottom: 2px solid $yellow;
-    @include transition (.3s);	
+    @include transition (.3s);
     &:hover{
       border-color: transparent;
       color: $yellow;
     }
-  }	
+  }
 }
 a{
   font-family: inherit;
-  line-height: 140%; 
+  line-height: 140%;
   color: $white;
-  font-weight: normal; 
-  text-decoration: none;	
+  font-weight: normal;
+  text-decoration: none;
 }
 h1{ /*Título de sección */
   font-size: 48px;
@@ -88,8 +88,8 @@ h1{ /*Título de sección */
   line-height: 20px;
   color: inherit;
   font-weight: normal;
-  color: $white;	
-  background: $dark-grey;	
+  color: $white;
+  background: $dark-grey;
   text-transform: uppercase;
   @include transition (.3s);
   &:hover	{
@@ -106,13 +106,13 @@ input[type="submit"]{
   color: inherit;
   font-weight: normal;
     border: none;
-    border-radius: 5px;	
-  color: $white;	
-  background: $yellow;	
-  text-transform: uppercase;	
-  @include transition (0.3s);	
+    border-radius: 5px;
+  color: $white;
+  background: $yellow;
+  text-transform: uppercase;
+  @include transition (0.3s);
   &:hover	{
-    background: $yellow;	
+    background: $yellow;
   }
 }
 
@@ -161,10 +161,10 @@ li{
   width: 100%;
   clear: both;
 }
-*:focus{outline:none;}   
+*:focus{outline:none;}
 .vertical-center{
-  position: relative; 
-  top: 50%; 
+  position: relative;
+  top: 50%;
   @include translate(0,-50%);
 }
 .videoWrapper {position: relative; padding-bottom: 56.25%; /* 16:9 */ padding-top: 25px; height: 0; }
@@ -172,7 +172,7 @@ li{
 .clearfix {@include clearfix; }
 .img-responsive{max-width:100%; display:block;}
 .background-image{height:100%; background-repeat: no-repeat; background-size:cover; background-position:center center;}
-.svg_path { 
+.svg_path {
   @include transition(fill 300ms ease-out);
 }
 
@@ -181,7 +181,7 @@ li{
     margin-bottom: 0;
     .slick-prev, .slick-next{
     width: 35px;
-      height: 35px;	   
+      height: 35px;
       z-index: 200;
       &:before {
         position: absolute;
@@ -206,7 +206,7 @@ li{
         height: 35px;
         width: 35px;
         color: $white;
-        opacity: 1;		   
+        opacity: 1;
         background-repeat: no-repeat;
         background-position: 50%;
     }
@@ -216,21 +216,21 @@ li{
   }
   .slick-prev {
       left: 30px;
-      &:after {		   
-        background-image: url(../img/flecha_slider_l.svg);		  
+      &:after {
+        // background-image: url(../img/flecha_slider_l.svg);
     }
   }
   .slick-next {
       right: 40px;
       &:after {
-        background-image: url(../img/flecha_slider_r.svg);	
+        // background-image: url(../img/flecha_slider_r.svg);
     }
   }
   .slick-dots {
       bottom: 50px;
       margin: 0;
       li{
-        button{		    	
+        button{
           background: none;
           &:before {
             content: '';
@@ -247,13 +247,13 @@ li{
   }
 }
 .container {
-  @include transition (padding .3s);	
+  @include transition (padding .3s);
 }
 section{
   position: relative;
   float: left;
   width: 100%;
-  z-index: 100;	
+  z-index: 100;
 }
 span{
   &.red{color: $red;}
@@ -265,10 +265,10 @@ span{
 /*404*/
 .error404 {
   .main-404{
-    padding: 200px 0;		
+    padding: 200px 0;
     img{
       margin-bottom: 20px;
-    }	
+    }
     h1{
       font-family: $font-family1;
       margin-bottom: 20px;
@@ -276,7 +276,7 @@ span{
     p{
       max-width: 500px;
       margin-bottom: 20px;
-    }	
+    }
   }
 }
 /*Home*/
@@ -391,8 +391,8 @@ span{
   }
 }
 @media (min-width: 601px) and (max-width: 1024px){ /*Tablet*/
-  .tablet{display: block !important;}	
-  .button.tablet {display: table !important;}	
+  .tablet{display: block !important;}
+  .button.tablet {display: table !important;}
   /*Home*/
   .home{
   }
@@ -401,7 +401,7 @@ span{
   .container {
     padding: 0 70px;
   }
-  .tablet_h{display: block !important;}	
+  .tablet_h{display: block !important;}
   .button.tablet_h {display: table !important;}
   /*404*/
   .error404 {
@@ -430,9 +430,9 @@ span{
 }
 @media (min-width: 737px) and (max-width: 768px){ /*Tablet Portrait sense iPhone 6 Landscape*/
 }
-@media (min-width: 601px) and (max-width: 736px) and (orientation:landscape){ /*iPhone 6 Landscape*/	
+@media (min-width: 601px) and (max-width: 736px) and (orientation:landscape){ /*iPhone 6 Landscape*/
 }
-@media (min-width: 481px) and (max-width: 600px){ /*Phone Landscape*/	
+@media (min-width: 481px) and (max-width: 600px){ /*Phone Landscape*/
 }
 @media (max-width: 480px) {	/*Phone Portrait*/
 }
